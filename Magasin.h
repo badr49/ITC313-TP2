@@ -20,13 +20,10 @@
 class Magasin{
 	public :
 		Magasin() ;
-		/*
-		void DisplayPROD();
-		*/
 		void addPROD(const std::string& t, const std::string& de, const int& q, const float& p);
 		friend std::ostream& operator<< (std::ostream &output, const Magasin& obj);
 		void LookPROD(Produit* t) ;
-		
+		void ModifPQ(Produit* t,int* q);	
 		
 	private :
 		std::vector<Produit*> m_products;

@@ -10,10 +10,14 @@
 
 class Client {
 	public :
-		Client(std::string n, std::string p);
-
+		Client(int id, std::string n, std::string p);
+		int getID();
+		std::string getNOM();
+		std::string getPRENOM();
+		std::vector<Produit*> getPANIER();
 		friend std::ostream& operator<< (std::ostream &output, const Client& obj);
 	private :
+		int m_id ;
 		std::string m_nom ;
 		std::string m_prenom ;
 		std::vector<Produit*> m_panier;
