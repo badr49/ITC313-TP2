@@ -1,6 +1,6 @@
 /**
   * File:     Magasin.cpp
-  * Author:   fig
+  * Author:   rachdad badr
   * Date:     Fall 2019
   * Course:   C-C++ Programming / Esirem 3A Informatique Electronique
   * Summary:  implementation of Magasin class
@@ -26,6 +26,7 @@ void Magasin::addPROD(const std::string& t, const std::string& de, const int& q,
 
 std::ostream& operator << (std::ostream &output, const Magasin &obj)
 {
+	
 	int a = obj.m_products.size();
 	for(int i=0;i<a;i++){
 	output << *obj.m_products.at(i) << std::endl;
@@ -34,19 +35,62 @@ return output;
 }
 
 
-void Magasin::LookPROD(Produit* t){
+void Magasin::LookPROD(std::string h){
+	bool p=false ;
 	int a = m_products.size(); 
+	
 	for(int i=0;i<a;i++){
-		if (m_products.at(i) == t)
+		if ((m_products.at(i))->getTITLE() == h)
 		{
-			std::cout << t ;
-			break ;
+			std::cout << *m_products.at(i) ;
+			p = true ;	
 		}
+
 	}
-	std::cout << "produit introuvable!" ;
+	if (p == true)
+	{
+		std::cout << "produit trouvé!\n" ;
+	}
+	else
+		std::cout << "produit introuvable!" ;
 }
 
+void Magasin::ModifPQ(std::string a,int q){
+	std::cout << "Loading....\n" ;
+
+	int o = m_products.size(); 
+	
+	for(int i=0;i<o;i++){
+		
+		if ((m_products.at(i))->getTITLE() == a){
+			m_products.at(i)->setQ(q) ;
+			std::cout << "Done!\n" ;
+			std::cout << *m_products.at(i) ;
+		}
+	}
+}
+void Magasin::addC(const int id, const std::string n, const std::string p){
+
+	Client *pr = new Client(id, n, p) ;
+	m_clients.push_back(pr);
+
+}
+
+
+void Magasin::ClientsDisplay(){
+	int a = this->m_clients.size();
+	for(int i=0;i<a;i++){
+		
+				
+	std::cout<<this->m_clients.at(i)->getID()<<" | "<<m_clients.at(i)->getNOM()<<" | "<<m_clients.at(i)->getPRENOM()<< std::endl;
+		
+}
+
+}
 /*
+	
+
+
 std::vector getPRODUCTS(){
 	return m_products ;
 }

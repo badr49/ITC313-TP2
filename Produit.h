@@ -1,3 +1,11 @@
+/**
+  * File:     Produit.h
+  * Author:   rachdad badr
+  * Date:     Fall 2019
+  * Course:   C-C++ Programming / Esirem 3A Informatique Electronique
+  * Summary:  Declaration of Produit
+  */
+
 
 #ifndef _PRODUIT_H
 #define _PRODUIT_H
